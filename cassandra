@@ -37,4 +37,20 @@ Connected to Test Cluster at 127.0.0.1:9042.
 Use HELP for help.
 cqlsh> 
 
+--------------------------------------------------------------------------------------------
+#cassandra with python
 
+#install cassandra driver
+pip install cassandra-driver
+
+#write this code in file py
+
+from cassandra.cluster import Cluster
+if __name__ == "__main__":
+    cluster = Cluster(['0.0.0.0'],port=9042)
+    session = cluster.connect('fruits',wait_for_all_pools=True)
+    session.execute('USE fruits')
+    rows = session.execute('SELECT * FROM students')
+    for row in rows:
+        print(row.student_id,row.student_name)
+        print(row)
