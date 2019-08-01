@@ -1,0 +1,40 @@
+#cassandra Installation
+
+requirements:
+- java (java -version)
+- python (python --version)
+
+wget -q -O - https://www.apache.org/dist/cassandra/KEYS | sudo apt-key add -
+
+sudo sh -c 'echo "deb http://www.apache.org/dist/cassandra/debian 311x main" > /etc/apt/sources.list.d/cassandra.sources.list'
+
+sudo apt update
+
+sudo apt install cassandra
+
+#verify cassandra
+nodetool status
+
+#if yout get error like this
+nodetool: Failed to connect to '127.0.0.1:7199' - ConnectException: 'Connection refused (Connection refused)'.
+
+#open /etc/cassandra/cassandra-env.sh and find this line 
+JVM_OPTS="$JVM_OPTS -Djava.rmi.server.hostname=<public name>"
+
+#change <public name> to 127.0.0.1 then do cassandra verification again
+(base) hadoop@hadoop-x442urr:~$ nodetool status
+Datacenter: datacenter1
+=======================
+Status=Up/Down
+|/ State=Normal/Leaving/Joining/Moving
+--  Address    Load       Tokens       Owns (effective)  Host ID                               Rack
+UN  127.0.0.1  103.69 KiB  256          100.0%            786b58f2-3608-449a-9b6e-18402cbd00cb  rack1
+
+#run cassandra command line utility named cqlsh
+(base) hadoop@hadoop-x442urr:~$ cqlsh
+Connected to Test Cluster at 127.0.0.1:9042.
+[cqlsh 5.0.1 | Cassandra 3.11.4 | CQL spec 3.4.4 | Native protocol v4]
+Use HELP for help.
+cqlsh> 
+
+
