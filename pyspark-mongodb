@@ -35,6 +35,28 @@ root
  |-- name: string (nullable = true)
  |-- value: string (nullable = true)
  
+ #select data
+name = df.select("name").show()
+all_data = df.show()
+
+print(name)
++------+
+|  name|
++------+
+| faqih|
+|dahlan|
+| akbar|
++------+
+
+print(all_data)
++--------------------+------+-----+
+|                 _id|  name|value|
++--------------------+------+-----+
+|[5d6dcfc0bd537a16...| faqih|  100|
+|[5d6dcfcebd537a16...|dahlan|   50|
+|[5d6dcfdbbd537a16...| akbar|   77|
++--------------------+------+-----+
+
  #if it is still error make sure jars dependencies are stored in jars folder 
  1. spark-sql
  2. mongo-spark-connector_2.11-2.2.1.jar
