@@ -1,0 +1,47 @@
+#create database and collection first in mongodb
+for example db name : testdb, collection name: hello
+
+import findspark
+findspark.init('/usr/local/spark/')
+
+from pyspark.sql import SparkSession
+
+spark = SparkSession \
+    .builder \
+    .appName("readmongo") \
+    .config("spark.mongodb.input.uri", "mongodb://127.0.0.1/testdb.hello") \
+    .config("spark.mongodb.output.uri", "mongodb://127.0.0.1/testdb.hello") \
+    .getOrCreate()
+
+
+df = spark.read\
+    .format("com.mongodb.spark.sql.DefaultSource")\
+    .load()
+
+df.printSchema()
+
+#run python via jupyter notebook or console
+sccic@sccic-GA-990FXA-UD5:~/project/realtime$ python3 readmongo.py 
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+19/09/03 10:14:45 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+19/09/03 10:14:45 WARN Utils: Your hostname, sccic-GA-990FXA-UD5 resolves to a loopback address: 127.0.1.1; using 192.168.1.141 instead (on interface enp5s0)
+19/09/03 10:14:45 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+19/09/03 10:14:46 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+root
+ |-- _id: struct (nullable = true)
+ |    |-- oid: string (nullable = true)
+ |-- name: string (nullable = true)
+ |-- value: string (nullable = true)
+ 
+ #if it is still error make sure jars dependencies are stored in jars folder 
+ 1. spark-sql
+ 2. mongo-spark-connector_2.11-2.2.1.jar
+ 3. mongodb-driver-core-3.4.2.jar
+ 4. mongo-java-driver-3.4.2.jar
+ 5. bson-3.4.2.jar,
+ 
+ 
+ 
+ ref : https://stackoverflow.com/questions/48059406/how-to-use-mongo-spark-connector-in-python?rq=1
