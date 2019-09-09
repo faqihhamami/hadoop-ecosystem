@@ -1,0 +1,29 @@
+### INSTALL SPARK
+tar xvf spark-2.4.0-bin-hadoop2.7.tgz
+sudo mkdir /usr/local/spark 
+sudo cp -a spark-2.4.0-bin-hadoop2.7/* /usr/local/spark/
+
+
+gedit ~/.bashrc
+#add this
+export PATH = $PATH:/usr/local/spark/bin
+
+source ~/.bashrc
+
+spark-submit --version
+
+
+#spark code
+$spark-shell
+
+### spark with hdfs 
+hadoop fs -put Downloads/employee.csv /user/issp/test
+hadoop fs -cat /user/issp/test/employee.csv | head
+
+
+login spark -> spark-shell
+val data3 = sc.textFile("hdfs://localhost:9000/user/issp/test/employee.csv")
+data3.count()
+data3.foreach(println)
+
+untuk zeppelin 0.7.3 harus pake spark 2.2 atau lebih rendah
