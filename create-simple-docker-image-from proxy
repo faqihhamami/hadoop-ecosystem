@@ -32,9 +32,12 @@ COPY app.py /opt/app.py
 ENTRYPOINT python /opt/app.py
 
 #build
-docker build -t flaskapp .
+docker push faqih10/simple-flaskapp . (faqih10 is docker account)
 
 #show images
 docker images
+
+#run docker
+docker run flaskapp
 
 ref: https://github.com/mmumshad/simple-webapp-flask
