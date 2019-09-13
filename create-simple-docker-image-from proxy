@@ -34,10 +34,16 @@ ENTRYPOINT python /opt/app.py
 #build
 docker push faqih10/simple-flaskapp . (faqih10 is docker account)
 
+#docker login
+docker login
+
+#docker push to repo docker hub
+docker push faqih10/simple-flaskapp
+
 #show images
 docker images
 
 #run docker
-docker run flaskapp
+docker run faqih10/simple-flaskapp
 
 ref: https://github.com/mmumshad/simple-webapp-flask
