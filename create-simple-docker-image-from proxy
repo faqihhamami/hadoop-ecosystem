@@ -49,4 +49,21 @@ docker run faqih10/simple-flaskapp
 #open browser
 http://172.17.0.2:8080/ 
 
+#to know what container is running and its name/ID
+docker ps
+
+#to know what container IP (from docker ps)
+docker inspect <ID>
+
+"Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "49fc02019ca475c2d23c13813836f84ed8ba8e7984bb15af80e2ab8d7d4dc857",
+                    "EndpointID": "dc29e76961a467accae4073342406256a70c3835f92acb425fd68d6f74a5fb8c",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+
+
 ref: https://github.com/mmumshad/simple-webapp-flask
