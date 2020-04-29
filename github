@@ -1,0 +1,5 @@
+map github repo from local folder
+
+git init
+git add .
+git commit -m "first init"
