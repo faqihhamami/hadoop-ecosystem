@@ -27,3 +27,6 @@ sudo mv kafka_2.11-2.0.0 /opt/kafka
 
 #open new terminal for consumer
 /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic Topic1 --from-beginning
+
+or
+https://kafka.apache.org/quickstart
