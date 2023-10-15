@@ -19,7 +19,7 @@ Nodemanager: http://<dockerhadoop_IP_address>:8042/node
 Resource manager: http://<dockerhadoop_IP_address>:8088/
 ```
 
-### Gunakan localhost dengan port diatas misalnya
+### Gunakan localhost / IP  dengan port diatas untuk melihat interface namenode
 Namenode ```localhost:9870/dfshealth.html#tab-overview```
 
 ### masuk ke Datanode
