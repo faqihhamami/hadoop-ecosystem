@@ -50,5 +50,5 @@ Namenode ```localhost:9870/dfshealth.html#tab-overview```
 ```hadoop fs -rmr /newdata```
 
 
-# stop docker hadoop
-docker-compose down
+### stop docker hadoop
+```docker-compose down```
