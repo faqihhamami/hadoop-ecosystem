@@ -3,6 +3,8 @@
 
 ### enter to directory
 ```cd docker-hadoop```
+![Uploading image.png…]()
+
 
 ### change docker-compose.yml file because only 1 datanode is running after starting the cluster
 ```https://gist.github.com/themonster2015/35cf4252893cdcc831e79e76deb95cdb```
