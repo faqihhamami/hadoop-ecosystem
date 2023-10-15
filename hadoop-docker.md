@@ -10,7 +10,7 @@
 ### To deploy an example HDFS cluster, run:
 ```docker-compose up```
 
-# Run docker network inspect on the network (e.g. dockerhadoop_default) to find the IP the hadoop interfaces are published on. Access these interfaces with the following URLs:
+### Run docker network inspect on the network (e.g. dockerhadoop_default) to find the IP the hadoop interfaces are published on. Access these interfaces with the following URLs:
 ```
 Namenode: http://<dockerhadoop_IP_address>:9870/dfshealth.html#tab-overview
 History server: http://<dockerhadoop_IP_address>:8188/applicationhistory
@@ -19,35 +19,35 @@ Nodemanager: http://<dockerhadoop_IP_address>:8042/node
 Resource manager: http://<dockerhadoop_IP_address>:8088/
 ```
 
-# Gunakan localhost dengan port diatas misalnya
+### Gunakan localhost dengan port diatas misalnya
 Namenode ```localhost:9870/dfshealth.html#tab-overview```
 
-# masuk ke Datanode
+### masuk ke Datanode
 ```docker exec -it datanode bash```
 
-# lihat hadoop version
+### lihat hadoop version
 ```hadoop version```
 
-# list all 
+### list all 
 ```hadoop fs -ls /```
 
-# create folder
-hadoop fs -mkdir /newdata
+### create folder
+```hadoop fs -mkdir /newdata```
 
-# create new file
-echo hai >> hai.txt
+### create new file
+```echo hai >> hai.txt```
 
-# copy to HDFS
-hadoop fs -put hai.txt /newdata
+### copy to HDFS
+```hadoop fs -put hai.txt /newdata```
 
-# cat file
-hadoop fs -cat /newdata/hai.txt
+### cat file
+```hadoop fs -cat /newdata/hai.txt```
 
-# remove file
-hadoop fs -rm /newdata/hai.txt
+### remove file
+```hadoop fs -rm /newdata/hai.txt```
 
-# remove folder
-hadoop fs -rmr /newdata
+### remove folder
+```hadoop fs -rmr /newdata```
 
 
 # stop docker hadoop
